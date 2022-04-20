@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzquizz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <meta name="description" content="Novo Buzzquizz">
+    <meta name="keywords" content="Buzzquizz">
+    <meta name="author" content="Carlos e Johana">
+</head>
+<body>
+    <header>
+        <h1 class="titulo">BuzzQuizz</h1>
+    </header>
+    <div class="criarquiz">
+    <div class="msj">
+        <h1>Você não criou nenhum quizz ainda :(</h1>
+        <button  class="boton1" onclick="abrirMenu()">
+            <h3>Criar Quizz</h3>
+        </button>
+    </div>
+   </div>
+    <div  class="hidden conteiner">
+        <header>
+            <h1 class="titulo">BuzzQuizz</h1>
+        </header>
+        <div class="subtitulo">
+            <h3>Comece pelo começo</h3>
+        </div>
+        <div class="criarquizcaixa">
+            <div class="titulodeseuquiz"><h3>Título do seu quizz</h3></div>
+            <div class="URLdaimg"><h3>URL da imagem do seu quizz</h3></div>
+            <div class="Quantidadedeperguntas"><h3>Quantidade de perguntas do quizz</h3></div>
+            <div class="Quantidadedenive"><h3>Quantidade de níveis do quizz</h3></div>
+        </div>
+        <button class="boton2"onclick="abrirMenu1()" >
+            <h3>Prosseguir pra criar perguntas</h3>
+        </button>
+    </div>
+    <div  class="hidden conteiner1">
+        <header>
+            <h1 class="titulo">BuzzQuizz</h1>
+        </header>
+        <div class="subtitulo1">
+            <h3>Crie suas perguntas</h3>
+        </div>
+        <div class="criarsuasperguntas">
+            <div class="pergunta1"><h3>Pergunta 1</h3></div>
+            <div class="Textodapergunta"><h3>Texto da pergunta</h3></div>
+            <div class="Cordefundodapergunta"><h3>Cor de fundo da pergunta</h3></div>
+            <div class="Respostacorreta"><h3>Resposta correta</h3></div>
+            <div class="Respostacorretadiv"><h3>Resposta correta</h3></div>
+            <div class="URLdaimagem"><h3>URL da imagem</h3></div>
+            <div class="Respostasincorretas"><h3>Respostas incorretas</h3></div>
+            <div class="Respostaincorreta1"><h3>Resposta incorreta1</h3></div>
+            <div class="URLdaimagem1"><h3>URL da imagem1</h3></div>
+            <div class="Respostaincorreta2"><h3>Resposta incorreta2</h3></div> 
+            <div class="URLdaimagem2"><h3>URL da imagem2</h3></div>
+            <div class="Respostaincorreta3"><h3>Resposta incorreta3</h3></div> 
+            <div class="URLdaimagem3"><h3>URL da imagem3</h3></div>
+            
+        </div>
+        <div class="pergunta2"><h3>Pergunta 2</h3></div>
+        <div class="pergunta3"><h3>Pergunta 3</h3></div>
+            <button class="boton3" onclick="abrirMenu2()" >
+                <h3>Prosseguir pra criar níveis</h3>
+            </button>
+    </div>
+    <div  class="hidden conteiner2">
+        <header>
+            <h1 class="titulo">BuzzQuizz</h1>
+        </header>
+        <div class="subtitulo2">
+            <h3>Agora, decida os níveis</h3>
+        </div>
+        <div class="criarnivel">
+            <div class="Nivel1"><h3>Nivel 1</h3></div>
+            <div class="Títulodonível"><h3>Título do nível</h3></div>
+            <div class="acertomínima"><h3>% de acerto mínima</h3></div>
+            <div class="URLdaimagemdonível"><h3>URL da imagem do nível</h3></div>
+            <div class="Descricaonivel"><h3>Descrição do nível</h3></div>
+        </div>
+        <div class="nivel2"><h3>Nivel 2</h3></div>
+        <div class="nivel3"><h3>Nivel 3</h3></div>
+        <button class="boton4"onclick="abrirMenu3()">
+            <h3>Finalizar Quizz</h3>
+        </button>
+    </div>
+    <div  class="hidden conteiner3">
+        <header>
+            <h1 class="titulo">BuzzQuizz</h1>
+        </header>
+        <div class="subtitulo3">
+            <h3>Seu quizz está pronto!</h3>
+        </div>
+        <div class="quizfeito">
+           
+        </div>
+        
+        <button class="boton5" >
+            <h3>Finalizar Quizz</h3>
+        </button>
+        <button class="boton6" >
+            <h3>Voltar home</h3>
+        </button>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
