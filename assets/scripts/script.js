@@ -1,6 +1,7 @@
 
 function abrirMenu() {
     document.querySelector(".criarquiz").classList.add("hidden");
+    document.querySelector(".listagem-todos-quizzes").classList.add("hidden");
     document.querySelector(".conteiner").classList.remove("hidden");
     console.log("ola mundo")
 }
