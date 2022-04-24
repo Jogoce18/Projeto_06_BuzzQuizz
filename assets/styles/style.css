@@ -256,7 +256,10 @@ color: #000000;
 .input-quizz-titulo,
 .input-quizz-url, 
 .input-quizz-qtd-perguntas,
-.input-quizz-qtd-niveis {
+.input-quizz-qtd-niveis,.answer-text-,
+.answer-color-,.answer-correct-,.answer-correct-url-,
+.answer-incorrect-0,.answer-icnorrect-url-0,.answer-incorrect-1,
+.answer-icnorrect-url-1,.answer-incorrect-2,.answer-icnorrect-url-2,.level-titulo,.level-sucess,.level-url,.level-description{
   width: 564px;
   height: 46px;
   margin-top: 10px; 
@@ -391,6 +394,7 @@ line-height: 25px;
 color: #FFF5F4;
 
 }
+
 
 .quizfeito {
   width: 340px;

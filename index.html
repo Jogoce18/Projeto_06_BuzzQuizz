@@ -22,7 +22,7 @@
     <div class="criarquiz">
         <div class="msj">
             <h1>Você não criou nenhum quizz ainda :(</h1>
-            <button class="boton1" onclick="abrirMenu()">
+            <button class="boton1" onclick="abrirMenu()" >
                 <h3>Criar Quizz</h3>
             </button>
         </div>
@@ -79,71 +79,23 @@
 
             <input placeholder="Título do seu quizz" class="input-quizz-titulo"></input>
 
-            <input placeholder="URL da imagem do seu quizz" class="input-quizz-url"></input>
+            <input placeholder="URL da imagem do seu quizz"  type="url" class="input-quizz-url"></input>
 
-            <input placeholder="Quantidade de perguntas do quizz" class="input-quizz-qtd-perguntas"></input>
+            <input placeholder="Quantidade de perguntas do quizz" type="number" min="3" class="input-quizz-qtd-perguntas"></input>
 
-            <input placeholder="Quantidade de níveis do quizz" class="input-quizz-qtd-niveis"></input>
+            <input placeholder="Quantidade de níveis do quizz" type="number"  min="2" class="input-quizz-qtd-niveis"></input>
 
         </div>
-        <button class="boton2" onclick="abrirMenu1()">
+        <button  type="submit"  class="boton2" onclick="abrirMenu1()" >
             <h3>Prosseguir pra criar perguntas</h3>
         </button>
     </div>
 
-
     <div class="hidden conteiner1">
-
         <div class="subtitulo1">
             <h3>Crie suas perguntas</h3>
-        </div>
-        <div class="criarsuasperguntas">
-
-
-            <h3>Pergunta 1</h3>
-            <img src="assets/images/Vector.svg" class="hidden" alt="">
-
-            <input placeholder="Pergunta 1" class="input-quizz-titulo"></input>
-
-            <input placeholder="Texto da pergunta" class="input-quizz-titulo"></input>
-
-            <input placeholder="Cor de fundo da pergunta" class="input-quizz-titulo"></input>
-
-
-            <h3>Resposta correta</h3>
-
-            <input placeholder="Resposta correta" class="input-quizz-titulo"></input>
-            <input placeholder="URL da imagem" class="input-quizz-titulo"></input>
-
-
-            <h3>Respostas incorretas</h3>
-
-
-            <input placeholder="Resposta incorreta1" class="input-quizz-titulo"></input>
-            <input placeholder="URL da imagem1" class="input-quizz-titulo"></input>
-
-            <div class="separador"></div>
-
-            <input placeholder="Resposta incorreta2" class="input-quizz-titulo"></input>
-            <input placeholder="URL da imagem2" class="input-quizz-titulo"></input>
-
-            <div class="separador"></div>
-
-            <input placeholder="Resposta incorreta3" class="input-quizz-titulo"></input>
-            <input placeholder="URL da imagem3" class="input-quizz-titulo"></input>
-
-        </div>
-
-        <div class="criarsuasperguntas">
-            <h3>Pergunta 2</h3>
-            <img src="assets/images/Vector.svg" alt="">
-        </div>
-
-
-
-        <button class="boton3" onclick="abrirMenu2()">
-            <h3>Prosseguir pra criar níveis</h3>
-        </button>
+        </div>  
+      
     </div>
 
     <!--Níveis do Quizz-->
@@ -152,35 +104,6 @@
         <div class="subtitulo1">
             <h3>Agora, decida os níveis</h3>
         </div>
-        <div class="criarnivel">
-
-            <h3>Nivel 1</h3>
-            <img src="assets/images/Vector.svg" class="hidden" alt="">
-
-            <input placeholder="Título do nível" class="input-quizz-titulo"></input>
-
-            <input placeholder="% de acerto mínima" class="input-quizz-titulo"></input>
-
-            <input placeholder="URL da imagem do nível" class="input-quizz-titulo"></input>
-
-            <input placeholder="Descrição do nível" class="input-quizz-titulo"></input>
-
-        </div>
-
-
-        <div class="criarnivel">
-            <h3>Nivel 2</h3>
-            <img src="assets/images/Vector.svg" alt="">
-        </div>
-
-        <div class="criarnivel">
-            <h3>Nivel 3</h3>
-            <img src="assets/images/Vector.svg" alt="">
-        </div>
-
-        <button class="boton4" onclick="abrirMenu3()">
-            <h3>Finalizar Quizz</h3>
-        </button>
     </div>
 
     <!--Quiz pronto -->
@@ -190,16 +113,14 @@
             <h3>Seu quizz está pronto!</h3>
         </div>
 
-
         <div class="quizfeito">
 
         </div>
-
         <button class="boton5">
             <h3>Finalizar Quizz</h3>
         </button>
-        <button class="boton6">
-            <h3>Voltar home</h3>
+        <button class="boton6" >
+            <h3>Voltar home </h3>
         </button>
     </div>
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
