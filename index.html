@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <header>
         <h1 class="titulo">BuzzQuizz</h1>
     </header>
@@ -27,24 +28,46 @@
         </div>
     </div>
 
-    <!--Listagem de todos os quizzes-->
+    <!--Start Container para abrigar a listagem de quizzes-->
+    <div class="container-lista-quizzes">
 
-    <div class="listagem-todos-quizzes">
-
-        <div class="box-quizzes">
-            <img src="assets/images/harry.jpeg" alt="">
+        
+        <div class="cabecalho-lista-quizze ">
+            <h3>Seus Quizzes</h3> 
+            <img src="assets/images/add-quizze-2.svg" alt="">   
+        </div>
+        <!--Listagem de seus quizzes-->
+        <div class="listagem-meus-quizzes">
+            <div class="box-quizzes">
+                <img class="box-quizzes-img" src="assets/images/harry.jpeg" alt="">
+                <h3 class="box-quizzes-titulo ">Titulo do Quizz muito grande como se comporta</h3>
+            </div>
         </div>
 
-        <div class="box-quizzes">
-            <img src="assets/images/harry.jpeg" alt="">
+        
+        <div class="cabecalho-lista-quizze">
+            <h3>Todos os Quizzes</h3>  
         </div>
+        <!--Listagem de todos os quizzes-->
+        <div class="listagem-todos-quizzes">
 
-        <div class="box-quizzes">
-            <img src="assets/images/harry.jpeg" alt="">
         </div>
-
 
     </div>
+    <!--End Container para abrigar a listagem de quizzes-->
+
+    <!--Start Tela 2: Página de um quizz (perguntas)-->
+
+    <div class="container-quizz-perguntas hidden">
+    
+        
+
+    </div>
+
+
+
+
+     <!--End Tela 2: Página de um quizz (perguntas)-->
 
     <div class="hidden conteiner">
 
@@ -182,6 +205,7 @@
     <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="assets/scripts/script.js"></script>
+    <script src="assets/scripts/script-carlos.js"></script>
 </body>
 
 </html>
