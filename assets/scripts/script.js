@@ -39,7 +39,6 @@ function saveValuesBasicQuizzInformation() {
     console.log(info)
 }
 function validateSimpleQuestions () {
-    
     const titulodoquiz=document.querySelector(".input-quizz-titulo");
     const numperguntas=document.querySelector(".input-quizz-qtd-perguntas");
     const urlimg=document.querySelector(".input-quizz-url");
@@ -73,11 +72,14 @@ function abrirMenu1() {
     for (let i=1;i<=valor;i++){
     if(valor>=3 && (valor1.length>=20 && valor1.length<=65) && (vaurl===true)){   
         ulpeople.innerHTML += `
-        <div class="criarsuasperguntas"  >
+        <div class= "inside" data-identifier="expand">
         <h3>Pergunta ${i}</h3>
-        <button class="expand" onclick="expandCard ()" >
-        <img src="assets/images/Vector.svg"  alt="">
-        </button>
+        <button onclick ="openQuestions(${i})" >
+        <img src="assets/images/Vector.svg"  alt="" >
+       </button>
+        </div>
+        <div class="orden${i}  hidden">
+        <div class="criarsuasperguntas"  >
         
         <input id="${i}-question" placeholder="Texto da pergunta"  type="texto" class="answer-text-"></input>
 
@@ -106,7 +108,7 @@ function abrirMenu1() {
         <input id="${i}-wrong-answer3" placeholder="Resposta incorreta3" type="texto"  class="answer-incorrect-2"></input>
         <input id="${i}-wrong-url3" placeholder="URL da imagem3" type="texto" class="answer-icnorrect-url-2"></input>
          </div>
-        
+        </div>
       `;
     
     
@@ -120,6 +122,12 @@ function abrirMenu1() {
     
    
 }
+
+function openQuestions (i) {  
+    const question = document.querySelector(`.orden${i}`);
+    question.classList.toggle("hidden")
+}
+
 // ------ informacaoApi ------------
 function saveValuesCreateQuizzQuestions() {
     saveValuesBasicQuizzInformation()
@@ -231,10 +239,16 @@ function abrirMenu2() {
     for (let i=1;i<=valorniveis;i++){
         
         ulpeople.innerHTML += `
+       
+        <div class= "inside" data-identifier="expand">
+        <h3>Nivel ${i}</h3>
+        <button onclick ="openlevels(${i})" >
+        <img src="assets/images/Vector.svg"  alt="">
+        </button>
+        </div>
+        <div class="orden2${i} hidden">
         <div class="criarnivel">
-            <h3>Nivel ${i}</h3>
-            <img src="assets/images/Vector.svg"  alt="">
-
+         
             <input id="${i + 1}-Tittle_level" placeholder="Título do nível" class="level-titulo"></input>
 
             <input id="${i + 1}-minimum_Hits" placeholder="% de acerto mínima" type="number" min="0" max="100" class="level-sucess"></input>
@@ -243,6 +257,7 @@ function abrirMenu2() {
 
             <input id="${i + 1}-LevelDescription" placeholder="Descrição do nível" class="level-description"></input>
 
+        </div>
         </div>
         `; 
     }
@@ -253,6 +268,11 @@ function abrirMenu2() {
     `;
   
 }
+function openlevels (i) {  
+    const level = document.querySelector(`.orden2${i}`);
+    level.classList.toggle("hidden")
+}
+
 // ------ informacaoApi ------------
 function saveValuesCreateQuizzLevels(){
     saveValuesBasicQuizzInformation()
@@ -319,6 +339,7 @@ function abrirMenu3() {
     document.querySelector(".conteiner3").classList.remove("hidden");
     console.log("ola mundo")
     PostQuizz ()
+    createQuizzSuccess ()
 }
 
 
@@ -335,7 +356,6 @@ function postValido (response){
 // ------ informacaoApi ------------
 function saveLocalStorage (response) {
     var meusQuizzes = JSON.parse(localStorage.getItem('meusQuizzes') || '[]');
-
     meusQuizzes.push({
         id: response.data.id,
         title: response.data.title,
@@ -350,4 +370,33 @@ function postInvalido (erro) {
     const statusCode = erro.response.data
     console.log(statusCode)
     alert("Deu ruim")
+}
+
+function createQuizzSuccess (id) {
+    const ulpeople = document.querySelector(".conteiner3");
+    ulpeople.innerHTML = `
+    <div class="create-quiz">
+        <div class="subtitulo1">Seu quizz está pronto!</div>
+        <div class="quizfeito" onclick="mostrar(${id})">
+            <img src="${info.image}">
+      
+            <div class="subtitulo2">${info.title}</div>
+        </div>
+        <button class="boton5" onclick="mostrar(${id})">Finalizar Quizz</button>
+        <div class="boton6" onclick="voltarhome()">Voltar pra home</div>
+    </div>
+    `;
+}
+function voltarhome(){
+    window.location.reload()
+}
+function mostrar(idQuizz){
+    const promise = axios.get(`${API}/quizzes/${idQuizz}`);
+    promise.catch(()=> alert("Erro de acesso ao Quizz"))
+}
+function obterQuizzes() {
+    const promise = axios.get(`${API}/quizzes`);
+    promise.then(renderizarQuizzes)
+    promise.catch(() => alert("Erro coleta de dados API"))
+    console.log(promise)
 }
