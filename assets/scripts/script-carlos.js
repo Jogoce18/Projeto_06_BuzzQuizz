@@ -108,14 +108,26 @@ function exibirQuizz (resposta) {
 
     <div class="box-quizz-resultado">
 
+
+
     </div>
 
     <button class="boton2">
         <h3>Reiniciar Quizz</h3>
     </button> 
+
+    <button class="boton6" onclick="voltarHome()">
+            <h3>Voltar home </h3>
+    </button>
+
     `;
 
     paginaQuizzPerguntas.innerHTML += boxTop; 
+}
+
+
+function voltarHome () {
+    window.location.reload(); 
 }
 
 function clickResposta(resposta) {
@@ -150,7 +162,39 @@ function clickResposta(resposta) {
 
     }
 
+    let questaoProxima = resposta.parentNode.nextElementSibling;
+
+    if (questaoProxima !== null) {
+        setTimeout(() => questaoProxima.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" }), 50);
+    }
+
+    if (contadorResposta === totalQuestoes) {
+        let fixarPorcentagem = Math.ceil(porcentagemCorretaResposta); 
+        setTimeout(mostraResultado, 500, fixarPorcentagem); 
+    }
+
+}
+
+function mostraResultado(porcentagemCorretaResposta) {
+    let niveis = quizz.levels; 
+
+    let boxResultado = ""; 
+
+    levels.forEach(nivel => {
+        if (porcentagemCorretaResposta >=nivel.minValue) {
+            boxResultado = `
+            <h4>${porcentagemCorretaResposta}% de acerto: ${nivel.title} </h4> 
+            <img class="opcao-img" src=${nivel.image} alt="">
+            <p> ${nivel.text}</p> 
+            `;
+        }
+    })
+
+    const quizzResultado = document.querySelector(".box-quizz-resultado"); 
     
+    quizzResultado.innerHTML += boxResultado; 
+    quizzResultado.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+
 
 
 
