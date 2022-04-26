@@ -343,7 +343,7 @@ input::placeholder {
   align-items: center;
   margin-top: 10px;
  
-  margin-left:750px;
+  margin-left:770px;
   color: #000000;
 }
 
@@ -455,7 +455,7 @@ color: #FFF5F4;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 15px;
-  margin-left:580px;
+  margin-left: 650px;
 }
 .boton6 {
   margin: 0 auto; 
@@ -607,11 +607,9 @@ border-radius: 0px;
     width: 70%;
   }
 .quizfeito{
-  width: 100%;
+  width: 80%;
 }
-.hola{
-  width: 100%;
-}
+
   .criarquizcaixa {
     width: 100%;
   }
@@ -637,9 +635,9 @@ border-radius: 0px;
     width: 100%;
   }
 
-  .quizfeito {
-    width: 100%;
-  }
+ .quizfeito img{
+   width: 100%;
+ }
 
   .container-lista-quizzes {
     margin: 0 auto;

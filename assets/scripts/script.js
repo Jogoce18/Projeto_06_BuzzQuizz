@@ -377,12 +377,12 @@ function createQuizzSuccess (id) {
     ulpeople.innerHTML = `
     <div class="create-quiz">
         <div class="subtitulo1">Seu quizz está pronto!</div>
-        <div class="quizfeito" onclick="mostrar(${id})">
-            <img class="hola"src="${info.image}">
+        <div class="quizfeito" onclick="acessarQuizzCriado()">
+            <img src="${info.image}">
       
-            <div class="subtitulo2">${info.title}</div>
+            <p class="subtitulo2">${info.title}</p>
         </div>
-        <button class="boton5" onclick="mostrar(${id})">Finalizar Quizz</button>
+        <button class="boton5" onclick="acessarQuizzCriado()">Finalizar Quizz</button>
         <div class="boton6" onclick="voltarhome()">Voltar pra home</div>
     </div>
     `;
@@ -390,13 +390,23 @@ function createQuizzSuccess (id) {
 function voltarhome(){
     window.location.reload()
 }
+function acessarQuizzCriado() {
+    let myQuizzes = localStorage.getItem("meusQuizzes");
+    let objetoMeusQuizzes = JSON.parse(myQuizzes);
+    let id = objetoMeusQuizzes[objetoMeusQuizzes.length -1].id;
+    let finalScreen = document.querySelector(".conteiner3")
+    let quizzScreen = document.querySelector(".create-quiz");
+    quizzScreen.classList.toggle("display-off")
+    finalScreen.classList.toggle("hidden");
+    obterQuizzes(id);
+}
 function mostrar(idQuizz){
     const promise = axios.get(`${API}/quizzes/${idQuizz}`);
     promise.catch(()=> alert("Erro de acesso ao Quizz"))
 }
-function obterQuizzes() {
-    const promise = axios.get(`${API}/quizzes`);
-    promise.then(renderizarQuizzes)
+function obterQuizzes(idQuizz) {
+    const promise = axios.get(`${API}/quizzes/${idQuizz}`);
+    promise.then(exibirQuizz)
     promise.catch(() => alert("Erro coleta de dados API"))
     console.log(promise)
 }
