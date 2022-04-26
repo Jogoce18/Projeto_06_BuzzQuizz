@@ -195,7 +195,4 @@ function mostraResultado(porcentagemCorretaResposta) {
     quizzResultado.innerHTML += boxResultado; 
     quizzResultado.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
 
-
-
-
 }

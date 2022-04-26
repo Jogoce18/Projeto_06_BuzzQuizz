@@ -156,10 +156,6 @@ color: #FFFFFF;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-
-
-
-
 }
 
 .cabecalho-lista-quizze {
@@ -504,7 +500,6 @@ color: #818181;
   justify-content: center;
   align-items: center;
   text-align: center;
-
   color: #FFFFFF;
 }
 
@@ -546,8 +541,6 @@ color: #818181;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .box-opcoes {
@@ -563,7 +556,6 @@ color: #818181;
 .opcao {
 Width: 329.91px;
 height: 175.2px;
-
 border-radius: 0px;
 }
 
@@ -592,7 +584,7 @@ border-radius: 0px;
 /*End - CSS Tela 2: Página de um quizz (perguntas) */
 
 /*Midia Query: */
-@media (max-width:600px) {
+@media (max-width:1100px) {
 
 
   header h1 {
@@ -633,6 +625,33 @@ border-radius: 0px;
   }
 
   .quizfeito {
+    width: 100%;
+  }
+
+  .container-lista-quizzes {
+    margin: 0 auto;
+    width: 100%;
+
+  }
+  
+  /*Seus Quizzes */
+  .listagem-meus-quizzes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 12px;
+  }
+
+  .box-opcoes {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    
+  }
+
+  .perguntas-top {
+    width: 100%;
+  }
+
+  .box-quizz-perguntas, .box-quizz-resultado { 
     width: 100%;
   }
 
