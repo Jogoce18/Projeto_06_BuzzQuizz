@@ -378,7 +378,7 @@ function createQuizzSuccess (id) {
     <div class="create-quiz">
         <div class="subtitulo1">Seu quizz está pronto!</div>
         <div class="quizfeito" onclick="mostrar(${id})">
-            <img src="${info.image}">
+            <img class="hola"src="${info.image}">
       
             <div class="subtitulo2">${info.title}</div>
         </div>

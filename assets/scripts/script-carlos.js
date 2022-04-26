@@ -6,7 +6,14 @@ let respostaPorcentagem = 0;
 let contadorResposta = 0; 
 let quizz = null; 
 let quizzID = null; 
-
+let answersCorret = 0;
+let dataQuiz;
+let numberOfResponses = 0;
+let acertos = 0;
+let numeroQuestoes = 0;
+let questoesRespondidas = 0;
+let data = null;
+let porcentagemAcertos = 0;
 function obterTodosQuizzes () {
     const promise = axios.get(`${API_QUIZZ}/quizzes`); 
     promise.then(renderizarTodosQuizzes); 
@@ -79,7 +86,7 @@ function exibirQuizz (resposta) {
             boxRespostas += `
             <div class="opcao" identificacao="resposta" onclick="clickResposta(this)" data-isCorrectAnswer="${resposta.isCorrectAnswer}">
                     <img class="opcao-img" src=${resposta.image} alt="">
-                    <h4>${resposta.text}</h4>
+                    <h4 class="respostas">${resposta.text}</h4>
             </div>
             `;
         }); 
@@ -108,8 +115,6 @@ function exibirQuizz (resposta) {
 
     <div class="box-quizz-resultado">
 
-
-
     </div>
 
     <button class="boton2">
@@ -130,39 +135,40 @@ function voltarHome () {
     window.location.reload(); 
 }
 
-function clickResposta(resposta) {
+function clickResposta(answer,isCorrectAnswer){
     let totalQuestoes = document.querySelectorAll(".box-quizz-perguntas").length;
     contadorResposta += 1; 
     respostaPorcentagem = 100/totalQuestoes; 
 
-    let conjuntoResposta = resposta.parentNode.firstChild; 
-
+    let conjuntoResposta = answer.parentNode.firstChild; 
+    const select= answer.parentNode;
     console.log(conjuntoResposta); 
 
     while (conjuntoResposta !== null) {
-        if (conjuntoResposta === resposta) {
-            if (resposta.getAttribute("data-isCorrectAnswer") === "true") {
+        
+        if (conjuntoResposta === answer) {
+            if (answer.getAttribute("data-isCorrectAnswer") === "true") {
                 porcentagemCorretaResposta += respostaPorcentagem; 
-                resposta.classList.add("correto"); 
+                answer.classList.add("correto"); 
+                conjuntoResposta.classList.remove("nao-selecionado");
+          
             } else {
-                resposta.classList.add("errado"); 
+               
+                answer.classList.add("errado"); 
+                conjuntoResposta.classList.remove("nao-selecionado");
             }
-        } else {
-            conjuntoResposta.classList.add("nao-selecionado"); 
-
-            if (conjuntoResposta.getAttribute("data-isCorrectAnswer") === "true") {
-                conjuntoResposta.classList.add("correto"); 
-
-            } else {
-                conjuntoResposta.classList.add("errado"); 
-            }
-        }
+       
+                conjuntoResposta.classList.add("nao-selecionado");
+            
+          
+           
+        }     
 
         conjuntoResposta = conjuntoResposta.nextElementSibling; 
 
     }
 
-    let questaoProxima = resposta.parentNode.nextElementSibling;
+    let questaoProxima = answer.parentNode.nextElementSibling;
 
     if (questaoProxima !== null) {
         setTimeout(() => questaoProxima.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" }), 50);
@@ -174,6 +180,9 @@ function clickResposta(resposta) {
     }
 
 }
+
+
+
 
 function mostraResultado(porcentagemCorretaResposta) {
     let niveis = quizz.levels; 
